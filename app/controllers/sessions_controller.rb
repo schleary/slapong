@@ -5,15 +5,16 @@ class SessionsController < ApplicationController
   end
 
   def create
+    session[:user_id] = @user.id
     # Refactor using a private method called user_params
-    @user = User.find_by_email(params[:session][:email])
-    if @user && @user.authenticate(params[:session][:password])
-      session[:user_id] = @user.id
-      redirect_to dashboard_path(@user)
-    else
-      flash.now[:error] = "Try again!"
-      render 'new'
-    end
+    # @user = User.find_by_email(params[:session][:email])
+    # if @user && @user.authenticate(params[:session][:password])
+    #   session[:user_id] = @user.id
+    #   redirect_to dashboard_path(@user)
+    # else
+    #   flash.now[:error] = "Try again!"
+    #   render 'new'
+    # end
   end
 
   def destroy

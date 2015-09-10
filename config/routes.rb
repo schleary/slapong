@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   get     '/',                      to: 'home#index',         as: :root
   # get     '/pdf',                   to: 'play#pdf',        as: :resume_pdf
 
+  # Sign-in / authenticated user routes
+  get    '/login',                 to: 'sessions#new',        as: :login
+  post   '/sessions',              to: 'sessions#create',     as: :sessions
+  get    '/logout',                to: 'sessions#destroy',    as: :logout
+  get    '/dashboard/:user_id',    to: 'sessions#show',       as: :dashboard
+
+
   # blog routes
   get     '/blog',                  to: 'blog#index',         as: :post
   get     '/blog',                  to: 'blog#index',         as: :posts

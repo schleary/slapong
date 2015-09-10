@@ -5,7 +5,10 @@ class ShopController < ApplicationController
   end
 
   def new
-    if session[:user_id]
+    puts'**********'
+    puts session[:current_session_id]
+    puts '**********'
+    if session[:current_session_id]
       @product = Product.new
     else
       redirect_to root_path
