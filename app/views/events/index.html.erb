@@ -7,17 +7,18 @@
       <h1><%= link_to event.title, event %></h1>
       <hr>
       <!-- Date/Time -->
-      <p><span class="glyphicon glyphicon-time"></span> <%= event.date %> <%= event.start_time %> - <%= event.end_time %></p>
+      <p><span class="glyphicon glyphicon-calendar"></span> <%= event.date.strftime("%A, %B %e, %Y") %>
+      <p><span class="glyphicon glyphicon-time"></span><%= event.start_time.strftime("%l:%M %P") %> - <%= event.end_time.strftime("%l:%M %P (%Z)") %></p></p>
+      <p><span class="glyphicon glyphicon-envelope"></span>
+        <%= event.street_address %>
+        <%= event.city %>,
+        <%= event.state %><%= event.zip %>
+      </p>
       <hr>
       <!-- Preview Image -->
       <!-- Event Content -->
       <p><%= event.description[0..350] %>... <%= link_to "read more", event %></p>
       <hr>
-      <p>
-        <%= event.street_address %>
-        <%= event.city %>,
-        <%= event.state %><%= event.zip %>
-      </p>
       <!-- Event Comments -->
     </div>
   </div>

@@ -13,21 +13,21 @@ Rails.application.routes.draw do
   get     '/blog/:id/delete',       to: 'blog#destroy',       as: :posts_delete
   delete  '/blog/:id',              to: 'blog#destroy',       as: :posts_destroy
 
-  get     'shop/index',             to: 'shop#index',         as: :shop
+  get     '/shop',                  to: 'shop#index',         as: :shop
 
-  get     'play/index',             to: 'play#index',         as: :play
+  get     '/play',                  to: 'play#index',         as: :play
 
-  get     '/events',                to: 'events#index',         as: :event
-  get     '/events',                to: 'events#index',         as: :events
-  get     '/events/new',            to: 'events#new',           as: :events_new
-  post    '/events',                to: 'events#create',        as: :events_create
-  get     '/events/:id',            to: 'events#show',          as: :events_show
-  get     '/events/:id/edit',       to: 'events#edit',          as: :events_edit
-  patch   '/events/:id',            to: 'events#update',        as: :events_update
-  get     '/events/:id/delete',     to: 'events#destroy',       as: :events_delete
-  delete  '/events/:id',            to: 'events#destroy',       as: :events_destroy
+  get     '/events',                to: 'events#index',       as: :event
+  get     '/events',                to: 'events#index',       as: :events
+  get     '/events/new',            to: 'events#new',         as: :events_new
+  post    '/events',                to: 'events#create',      as: :events_create
+  get     '/events/:id',            to: 'events#show',        as: :events_show
+  get     '/events/:id/edit',       to: 'events#edit',        as: :events_edit
+  patch   '/events/:id',            to: 'events#update',      as: :events_update
+  get     '/events/:id/delete',     to: 'events#destroy',     as: :events_delete
+  delete  '/events/:id',            to: 'events#destroy',     as: :events_destroy
 
-  get     'contact/index',          to: 'contact#index',      as: :contact
+  get     '/contact',               to: 'contact#index',      as: :contact
 
 
   # The priority is based upon order of creation: first created -> highest priority.

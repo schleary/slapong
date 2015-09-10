@@ -12,28 +12,17 @@
     <!-- Blog post -->
     <!-- Title -->
     <h1><%= @post.title %></h1>
-    <!-- Author -->
-    <p class="lead">
-        by <a href="#"><%= @post.author %></a>
-    </p>
     <hr>
     <!-- Date/Time -->
-    <p><span class="glyphicon glyphicon-time"></span> <%= @post.created_at %></p>
-    <hr>
-    <% if @post.img.length > 0 %>
-      <!-- Preview Image -->
-      <img class="img-responsive" src="<%= @post.img %>">
-      <hr>
-    <% end %>
     <!-- post Content -->
-    <p class="lead"><%= @post.content %></p>
+    <p class="lead"><%= @post.body %></p>
   </div>
 </div>
 
 <div id="disqus_thread"></div>
   <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'adasgarden'; // required: replace example with your forum shortname
+    var disqus_shortname = 'slapong'; // required: replace example with your forum shortname
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
