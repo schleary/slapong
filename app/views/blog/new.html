@@ -1,0 +1,5 @@
+<%= bootstrap_form_for(@post) do |f| %>
+  <%= f.text_field :title, class: "form-control", placeholder: "Title"  %>
+  <%= f.text_area :body, class: "form-control", placeholder: "Body", rows: "20" %>
+  <%= f.submit "Save", class: "btn btn-default"%>
+<% end %>
