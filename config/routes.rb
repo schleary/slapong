@@ -17,7 +17,15 @@ Rails.application.routes.draw do
 
   get     'play/index',             to: 'play#index',         as: :play
 
-  get     'events/index',           to: 'events#index',       as: :events
+  get     '/events',                to: 'events#index',         as: :event
+  get     '/events',                to: 'events#index',         as: :events
+  get     '/events/new',            to: 'events#new',           as: :events_new
+  post    '/events',                to: 'events#create',        as: :events_create
+  get     '/events/:id',            to: 'events#show',          as: :events_show
+  get     '/events/:id/edit',       to: 'events#edit',          as: :events_edit
+  patch   '/events/:id',            to: 'events#update',        as: :events_update
+  get     '/events/:id/delete',     to: 'events#destroy',       as: :events_delete
+  delete  '/events/:id',            to: 'events#destroy',       as: :events_destroy
 
   get     'contact/index',          to: 'contact#index',      as: :contact
 

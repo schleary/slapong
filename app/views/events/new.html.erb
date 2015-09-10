@@ -1,0 +1,12 @@
+<%= bootstrap_form_for(@event) do |f| %>
+  <%= f.text_field :title, class: "form-control", placeholder: "Title"  %>
+  <%= f.text_area :description, class: "form-control", placeholder: "Description", rows: "20" %>
+  <%= f.date_select :date, class: "form-control", placeholder: "Date"  %>
+  <%= f.time_select :start_time, class: "form-control", placeholder: "Start Time", rows: "20" %>
+  <%= f.time_select :end_time, class: "form-control", placeholder: "End Time", rows: "20" %>
+  <%= f.text_field :street_address, class: "form-control", placeholder: "Street Address"  %>
+  <%= f.text_field :city, class: "form-control", placeholder: "City", rows: "20" %>
+  <%= f.text_field :state, class: "form-control", placeholder: "State", rows: "20" %>
+  <%= f.text_field :zip, class: "form-control", placeholder: "Zip", rows: "20" %>
+  <%= f.submit "Save", class: "btn btn-default"%>
+<% end %>

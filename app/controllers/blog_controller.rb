@@ -50,6 +50,6 @@ class BlogController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :img, :author)
+    params.require(:post).permit(:title, :body)
   end
 end
