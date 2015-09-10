@@ -5,7 +5,11 @@ class ShopController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    if session[:user_id]
+      @product = Product.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -52,5 +56,107 @@ class ShopController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :price_cents, :stock_quantity)
   end
+
+  # *****************
+
+
+
+def create
+  @categories = Category.all
+  @product = Product.new(product_params)
+  @product.user = current_user
+  if @product.save
+    redirect_to dashboard_path(current_user), notice: "Product has been created!"
+  else
+    render "new"
+  end
+end
+
+def show
+  find_product
+  @categories = @product.categories
+  @reviews = @product.reviews
+
+  # #added by Holly
+  @current_order = Order.where(:session_id => @current_session_id, :current_state => "pending")
+  if @current_order.size == 0
+    @order = Order.new(:session_id => @current_session_id, :current_state => "pending")
+    @order.save
+  else
+    #if current_order size == 1
+    @order = @current_order[0]
+  end
+
+  if OrderItem.find_by(:product_id => @product.id, :order_id => @order.id).present?
+    @order_item = OrderItem.find_by(:product_id => @product.id)
+  else
+    @order_item = OrderItem.new
+  end
+end
+
+# def add_to_cart
+#   find_product
+#
+#   # #added by Holly
+#   @current_order = Order.where(:session_id => @current_session_id, :current_state => "pending")
+#   if @current_order.size == 0
+#     @order = Order.new(:session_id => @current_session_id, :current_state => "pending")
+#     @order.save
+#   else
+#     #if current_order size == 1
+#     @order = @current_order[0]
+#   end
+#
+#   if OrderItem.find_by(:product_id => @product.id, :order_id => @order.id).present?
+#     @order_item = OrderItem.find_by(:product_id => @product.id)
+#   else
+#     @order_item = OrderItem.new(:product_id => @product.id, :order_id => @order.id)
+#
+#   end
+#   @order_item.save
+# end
+
+
+
+
+
+def edit
+  find_product
+  if session[:user_id]
+    @categories = Category.all
+  else
+    redirect_to home_path
+  end
+end
+
+def update
+  @categories = Category.all
+  find_product
+  if @product.update(product_params) && session[:user_id]
+    #put this into myaccount dashboard once that's been created
+    redirect_to dashboard_path(current_user), notice: "Product has been updated!"
+  else
+    render "edit"
+  end
+end
+
+# products can now be 'retired' so can delete this
+def destroy
+  if find_product.destroy
+    redirect_to dashboard_path(current_user), notice: "Product has been deleted!"
+  else
+    render "delete", notice: "Try again."
+  end
+end
+
+private
+
+def product_params
+  (params.require(:product).permit(:name, :price, :description, :photo_url, :stock, :retired, :category_ids => []))
+end
+
+def find_product
+  @product = Product.find(params[:id])
+end
 
 end

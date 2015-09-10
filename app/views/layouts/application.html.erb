@@ -13,7 +13,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <header>
+   <% if session[:user_id] %>
+     <%= render "layouts/guest" %>
+   <% end %>
 
+   </header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!--  and toggle get grouped for better mobile display -->
@@ -46,6 +51,7 @@
           <li><a href="/blog">Blog</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/shop">Shop</a></li>
+          <li><a href="/shop"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
         </ul>
         <!-- <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
@@ -58,28 +64,27 @@
   </nav>
   <div class="container">
 
-      <%= yield %>
-<hr>
-<br>
-      <!-- Footer -->
-      <footer>
-           <div class="container">
-               <div class="row">
-                   <div class="col-md-6">
-                       <span class="copyright">Copyright &copy; Your Website 2014</span>
-                   </div>
+  <%= yield %>
+  <hr>
+  <!-- Footer -->
+  <footer>
+       <div class="container">
+           <div class="row">
+               <div class="col-md-6">
+                   <span class="copyright">Copyright &copy; Your Website 2014</span>
+               </div>
 
-                   <div class="col-md-6">
-                       <ul class="list-inline quicklinks">
-                           <li><a href="#">Privacy Policy</a>
-                           </li>
-                           <li><a href="#">Terms of Use</a>
-                           </li>
-                       </ul>
-                   </div>
+               <div class="col-md-6">
+                   <ul class="list-inline quicklinks">
+                       <li><a href="#">Privacy Policy</a>
+                       </li>
+                       <li><a href="#">Terms of Use</a>
+                       </li>
+                   </ul>
                </div>
            </div>
-       </footer>
+       </div>
+   </footer>
    <!-- jQuery -->
    <script src="js/jquery.js"></script>
    <!-- Bootstrap Core JavaScript -->

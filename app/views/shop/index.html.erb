@@ -1,14 +1,23 @@
 <%= link_to "Create a New Product", products_new_path, class:"btn btn-primary" %>
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+<img src="http://fakeimg.pl/1140x300/" alt="...">
+
+<% @products.each do |product| %>
+  <div class="row">
+    <!-- Blog post Content Column -->
+    <div class="col-lg-12">
+      <!-- Blog post -->
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <img src="..." alt="...">
+            <div class="caption">
+              <h3><%= link_to product.name, products_show_path(product) %></h3>
+              <p><%= product.description %></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

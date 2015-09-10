@@ -1,0 +1,25 @@
+<!-- <% if @current_user && @current_user.admin %>
+  <%= link_to "Edit", edit_product_path(@product), class:"btn btn-default" %>
+  <%= link_to "Delete", product_path(@product), method: :delete, class:"btn btn-default" %>
+<% end %> -->
+
+<div class="row">
+  <!-- Blog product Content Column -->
+  <div class="col-lg-8">
+    <!-- Blog product -->
+    <!-- Title -->
+    <h1><%= @order.total %></h1>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6 col-md-3">
+        <a href="#" class="thumbnail">
+          <img src="..." alt="...">
+        </a>
+      </div>
+      ...
+    </div>
+    <!-- Date/Time -->
+    <!-- product Content -->
+    <p class="lead"><%= order.email %></p>
+  </div>
+</div>
