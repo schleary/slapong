@@ -13,8 +13,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <div class="container">
 
-<%= yield %>
+      <nav>
+        <ul>
+          <%= link_to "Slapong", root_path %>
+          <%= link_to "Events", events_path %>
+          <%= link_to "Play", play_path %>
+          <%= link_to "Blog", blogs_path %>
+          <%= link_to "Contact", contact_path %>
+          <%= link_to "Shop", shop_path %>
+        </ul>
+      </nav>
+
+      <%= yield %>
+
+  </div><!-- container -->
 
 </body>
 </html>

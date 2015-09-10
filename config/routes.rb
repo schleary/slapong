@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'shop/index'
-
-  get 'play/index'
-
-  get 'events/index'
-
-  get 'contact/index'
 
   get     '/',                      to: 'home#index',         as: :root
 
@@ -18,6 +11,15 @@ Rails.application.routes.draw do
   patch   '/blog/:id',              to: 'blogs#update',       as: :blogs_update
   get     '/blog/:id/delete',       to: 'blogs#destroy',      as: :blogs_delete
   delete  '/blog/:id',              to: 'blogs#destroy',      as: :blogs_destroy
+
+  get 'shop/index',                 to: 'shop#index',         as: :shop
+
+  get 'play/index',                 to: 'play#index',         as: :play
+
+  get 'events/index',               to: 'events#index',       as: :events
+
+  get 'contact/index',              to: 'contact#index',      as: :contact
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
