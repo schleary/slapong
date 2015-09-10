@@ -1,0 +1,5 @@
+<%= bootstrap_form_for @product, url: {action: "update"} do |f| %>
+  <%= f.text_field :name, class: "form-control", placeholder: "Name"  %>
+  <%= f.text_area :description, class: "form-control", placeholder: "Content", rows: "20" %>
+  <%= f.submit "Save", class: "btn btn-default"%>
+<% end %>

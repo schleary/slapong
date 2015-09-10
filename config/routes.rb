@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get     '/',                      to: 'home#index',         as: :root
+  # get     '/pdf',                   to: 'play#pdf',        as: :resume_pdf
 
   # blog routes
   get     '/blog',                  to: 'blog#index',         as: :post
@@ -13,10 +14,20 @@ Rails.application.routes.draw do
   get     '/blog/:id/delete',       to: 'blog#destroy',       as: :posts_delete
   delete  '/blog/:id',              to: 'blog#destroy',       as: :posts_destroy
 
-  get     '/shop',                  to: 'shop#index',         as: :shop
+  # shop routes
+  get     '/shop',                  to: 'shop#index',         as: :product
+  get     '/shop',                  to: 'shop#index',         as: :products
+  get     '/shop/new',              to: 'shop#new',           as: :products_new
+  post    '/shop',                  to: 'shop#create',        as: :products_create
+  get     '/shop/:id',              to: 'shop#show',          as: :products_show
+  get     '/shop/:id/edit',         to: 'shop#edit',          as: :products_edit
+  patch   '/shop/:id',              to: 'shop#update',        as: :products_update
+  get     '/shop/:id/delete',       to: 'shop#destroy',       as: :products_delete
+  delete  '/shop/:id',              to: 'shop#destroy',       as: :products_destroy
 
   get     '/play',                  to: 'play#index',         as: :play
 
+  # event routes
   get     '/events',                to: 'events#index',       as: :event
   get     '/events',                to: 'events#index',       as: :events
   get     '/events/new',            to: 'events#new',         as: :events_new
