@@ -3,22 +3,22 @@ Rails.application.routes.draw do
   get     '/',                      to: 'home#index',         as: :root
 
   # blog routes
-  get     '/blog',                  to: 'blogs#index',        as: :blogs
-  get     '/blog/new',              to: 'blogs#new',          as: :blogs_new
-  post    '/blog',                  to: 'blogs#create',       as: :blogs_create
-  get     '/blog/:id',              to: 'blogs#show',         as: :blogs_show
-  get     '/blog/:id/edit',         to: 'blogs#edit',         as: :blogs_edit
-  patch   '/blog/:id',              to: 'blogs#update',       as: :blogs_update
-  get     '/blog/:id/delete',       to: 'blogs#destroy',      as: :blogs_delete
-  delete  '/blog/:id',              to: 'blogs#destroy',      as: :blogs_destroy
+  get     '/blog',                  to: 'blog#index',         as: :blogs
+  get     '/blog/new',              to: 'blog#new',           as: :blogs_new
+  post    '/blog',                  to: 'blog#create',        as: :blogs_create
+  get     '/blog/:id',              to: 'blog#show',          as: :blogs_show
+  get     '/blog/:id/edit',         to: 'blog#edit',          as: :blogs_edit
+  patch   '/blog/:id',              to: 'blog#update',        as: :blogs_update
+  get     '/blog/:id/delete',       to: 'blog#destroy',       as: :blogs_delete
+  delete  '/blog/:id',              to: 'blog#destroy',       as: :blogs_destroy
 
-  get 'shop/index',                 to: 'shop#index',         as: :shop
+  get     'shop/index',             to: 'shop#index',         as: :shop
 
-  get 'play/index',                 to: 'play#index',         as: :play
+  get     'play/index',             to: 'play#index',         as: :play
 
-  get 'events/index',               to: 'events#index',       as: :events
+  get     'events/index',           to: 'events#index',       as: :events
 
-  get 'contact/index',              to: 'contact#index',      as: :contact
+  get     'contact/index',          to: 'contact#index',      as: :contact
 
 
   # The priority is based upon order of creation: first created -> highest priority.
