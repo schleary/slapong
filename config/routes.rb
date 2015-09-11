@@ -2,18 +2,24 @@ Rails.application.routes.draw do
 
   get     '/',                      to: 'home#index',         as: :root
   # get     '/pdf',                   to: 'play#pdf',        as: :resume_pdf
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  # Sign-in / authenticated user routes
-  get    '/login',                 to: 'sessions#new',        as: :login
-  post   '/sessions',              to: 'sessions#create',     as: :sessions
-  get    '/logout',                to: 'sessions#destroy',    as: :logout
-  get    '/dashboard/:user_id',    to: 'sessions#show',       as: :dashboard
+  resources :users
+  resources :sessions
 
-  # User routes
-  get    '/users',                 to: 'users#index',         as: :users
-  get    '/users/new',             to: 'users#new',           as: :users_new
-  post   '/users',                 to: 'users#create',        as: :users_create
-  get    '/users/:id',             to: 'users#show',          as: :users_show
+  # # Sign-in / authenticated user routes
+  # get    '/login',                 to: 'sessions#new',        as: :login
+  # post   '/sessions',              to: 'sessions#create',     as: :sessions
+  # get    '/logout',                to: 'sessions#destroy',    as: :logout
+  # get    '/dashboard/:user_id',    to: 'sessions#show',       as: :dashboard
+  #
+  # # User routes
+  # get    '/users',                 to: 'users#index',         as: :users
+  # get    '/users/new',             to: 'users#new',           as: :users_new
+  # post   '/users',                 to: 'users#create',        as: :users_create
+  # get    '/users/:id',             to: 'users#show',          as: :users_show
 
   # blog routes
   get     '/blog',                  to: 'blog#index',         as: :post

@@ -1,15 +1,30 @@
-<h1>Create an Account</h1>
 
-<!-- Fix this with partials -->
-<% if flash.now[:error]  %>
-  <%= flash.now[:error]  %>
-<% end  %>
-<%= bootstrap_form_for(:session, url: sessions_path) do |f| %>
-  <%= f.text_field :username, class: "form-control", placeholder: "Username"  %>
-  <%= f.text_field :email, class: "form-control", placeholder: "Email"  %>
-  <%= f.text_field :password, class: "form-control", placeholder: "Password", rows: "20" %>
-  <%= f.text_field :password, class: "form-control", placeholder: "Verify Password", rows: "20" %>
-  <%= f.submit "Create Account", :class => "btn btn-default" %>
+
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions"><%= f.submit "Sign Up" %></div>
 <% end %>
-
-<p>Have an account? <%= link_to "Login.", login_path %></p>

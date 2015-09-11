@@ -1,15 +1,14 @@
-<h1>Login as Admin</h1>
 
-<!-- is this the correct syntax? -->
-<% if flash.now[:error]  %>
-  <%= flash.now[:error]  %>
-<% end  %>
+<h1>Log In</h1>
 
-<%= bootstrap_form_for(:session, url: sessions_path) do |f| %>
-  <%= f.text_field :username, class: "form-control", placeholder: "Username"  %>
-  <%= f.text_field :email, class: "form-control", placeholder: "Email"  %>
-  <%= f.text_field :password, class: "form-control", placeholder: "Password", rows: "20" %>
-  <%= f.submit "Login", :class => "btn btn-default" %>
+<%= form_tag sessions_path do %>
+  <div class="field">
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions"><%= submit_tag "Log In" %></div>
 <% end %>
-
-<p>New user? <%= link_to "Create an account.", users_new_path %></p>
