@@ -5,9 +5,6 @@ class ShopController < ApplicationController
   end
 
   def new
-    puts'**********'
-    puts session[:current_session_id]
-    puts '**********'
     if session[:current_session_id]
       @product = Product.new
     else
@@ -18,6 +15,7 @@ class ShopController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      # @product.user = current_user
       # @users = User.all
       # @users = @users.map {|user| user if user.confirmed? }
       # @users.each do |user|
@@ -25,7 +23,7 @@ class ShopController < ApplicationController
       #     Resque.enqueue(EmailNewsJob, @product.id, user.id)
       #   end
       # end
-      redirect_to products_path
+      redirect_to products_path, notice: "Product has been created!"
     else
       render :new
     end
@@ -57,23 +55,13 @@ class ShopController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price_cents, :stock_quantity)
+    params.require(:product).permit(:name, :description)
   end
 
   # *****************
 
 
 
-def create
-  @categories = Category.all
-  @product = Product.new(product_params)
-  @product.user = current_user
-  if @product.save
-    redirect_to dashboard_path(current_user), notice: "Product has been created!"
-  else
-    render "new"
-  end
-end
 
 def show
   find_product
@@ -155,7 +143,7 @@ end
 private
 
 def product_params
-  (params.require(:product).permit(:name, :price, :description, :photo_url, :stock, :retired, :category_ids => []))
+  (params.require(:product).permit(:name, :description))
 end
 
 def find_product

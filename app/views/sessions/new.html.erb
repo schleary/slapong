@@ -1,0 +1,20 @@
+<h1>Login as Admin</h1>
+
+<!-- is this the correct syntax? -->
+<% if flash.now[:error]  %>
+  <%= flash.now[:error]  %>
+<% end  %>
+
+<div class="login-form-container">
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <ul>
+    <li><%= f.label "E-mail" %></li>
+    <li><%= f.text_field :email %></li>
+    <li><%= f.label "Password" %></li>
+    <li><%= f.password_field :password %></li>
+  </ul>
+  <%= f.submit "Login", :class => "btn btn-default" %>
+<% end %>
+</div>
+
+<p>New user? <%= link_to "Create an account.", users_new_path %></p>
