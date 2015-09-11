@@ -1,15 +1,15 @@
-<h1>Login as Admin</h1>
+<h1>Create an Account</h1>
 
-<!-- is this the correct syntax? -->
+<!-- Fix this with partials -->
 <% if flash.now[:error]  %>
   <%= flash.now[:error]  %>
 <% end  %>
-
 <%= bootstrap_form_for(:session, url: sessions_path) do |f| %>
   <%= f.text_field :username, class: "form-control", placeholder: "Username"  %>
   <%= f.text_field :email, class: "form-control", placeholder: "Email"  %>
   <%= f.text_field :password, class: "form-control", placeholder: "Password", rows: "20" %>
-  <%= f.submit "Login", :class => "btn btn-default" %>
+  <%= f.text_field :password, class: "form-control", placeholder: "Verify Password", rows: "20" %>
+  <%= f.submit "Create Account", :class => "btn btn-default" %>
 <% end %>
 
-<p>New user? <%= link_to "Create an account.", users_new_path %></p>
+<p>Have an account? <%= link_to "Login.", login_path %></p>

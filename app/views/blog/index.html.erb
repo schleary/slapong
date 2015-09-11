@@ -1,3 +1,4 @@
+<h1>Slapblog</h1>
 <% @posts.each do |post| %>
   <div class="row">
     <!-- Blog post Content Column -->
@@ -12,7 +13,7 @@
         ...
       </div>
       <!-- Title -->
-      <h1><%= link_to post.title, posts_show_path(post) %></h1>
+      <h2><%= link_to post.title, posts_show_path(post) %></h2>
       <hr>
       <!-- Date/Time -->
       <p><span class="glyphicon glyphicon-time"></span> <%= post.created_at %></p>
