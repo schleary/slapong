@@ -1,5 +1,8 @@
 <h1>Slap Events</h1>
-<%= link_to "Create an Event", events_new_path, class:"btn btn-primary" %>
+
+<% if current_user %>
+  <%= link_to "Create an Event", events_new_path, class:"btn btn-primary" %>
+<% end %>
 
 <% @events.each do |event| %>
   <div class="row">

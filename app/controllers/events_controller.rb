@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  
+  before_filter :authorize, :except => :index
+
   def index
     @events = Event.all
     @events.to_a.reverse!
