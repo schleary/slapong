@@ -17,8 +17,7 @@ Rails.application.routes.draw do
   get     '/blog/:id',              to: 'blog#show',          as: :posts_show
   get     '/blog/:id/edit',         to: 'blog#edit',          as: :posts_edit
   patch   '/blog/:id',              to: 'blog#update',        as: :posts_update
-  get     '/blog/:id/delete',       to: 'blog#destroy',       as: :posts_delete
-  delete  '/blog/:id',              to: 'blog#destroy',       as: :posts_destroy
+  delete  '/blog/:id/delete',       to: 'blog#destroy',       as: :posts_destroy
 
   # shop routes
   get     '/shop',                  to: 'shop#index',         as: :product
@@ -28,8 +27,7 @@ Rails.application.routes.draw do
   get     '/shop/:id',              to: 'shop#show',          as: :products_show
   get     '/shop/:id/edit',         to: 'shop#edit',          as: :products_edit
   patch   '/shop/:id',              to: 'shop#update',        as: :products_update
-  get     '/shop/:id/delete',       to: 'shop#destroy',       as: :products_delete
-  delete  '/shop/:id',              to: 'shop#destroy',       as: :products_destroy
+  delete  '/shop/:id/delete',       to: 'shop#destroy',       as: :products_destroy
 
   get     '/play',                  to: 'play#index',         as: :play
 
@@ -41,8 +39,7 @@ Rails.application.routes.draw do
   get     '/events/:id',            to: 'events#show',        as: :events_show
   get     '/events/:id/edit',       to: 'events#edit',        as: :events_edit
   patch   '/events/:id',            to: 'events#update',      as: :events_update
-  get     '/events/:id/delete',     to: 'events#destroy',     as: :events_delete
-  delete  '/events/:id',            to: 'events#destroy',     as: :events_destroy
+  delete  '/events/:id/delete',     to: 'events#destroy',     as: :events_destroy
 
   get     '/contact',               to: 'contact#index',      as: :contact
 
