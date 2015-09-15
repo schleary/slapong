@@ -1,6 +1,6 @@
 <h1>Slap Events</h1>
 
-<% if current_user %>
+<% if admin? %>
   <%= link_to "Create an Event", events_new_path, class:"btn btn-primary" %>
 <% end %>
 
