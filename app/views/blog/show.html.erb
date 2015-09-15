@@ -1,7 +1,7 @@
-<!-- <% if @current_user && @current_user.admin %>
-  <%= link_to "Edit", edit_post_path(@post), class:"btn btn-default" %>
-  <%= link_to "Delete", post_path(@post), method: :delete, class:"btn btn-default" %>
-<% end %> -->
+<% if admin? %>
+  <%= link_to "Edit", posts_edit_path(@post), class:"btn btn-default" %>
+  <%= link_to "Delete", posts_path(@post), method: :delete, class:"btn btn-default" %>
+<% end %>
 
 <div class="row">
   <!-- Blog post Content Column -->

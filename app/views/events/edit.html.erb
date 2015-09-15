@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @post, url: {action: "update"} do |f| %>
+<%= bootstrap_form_for @event, url: {action: "update"} do |f| %>
   <%= f.text_field :title, class: "form-control", placeholder: "Title"  %>
   <%= f.text_area :description, class: "form-control", placeholder: "Description", rows: "20" %>
   <%= f.date_select :date, class: "form-control", placeholder: "Date"  %>
