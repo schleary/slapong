@@ -24,7 +24,10 @@
     </div>
     <!-- Date/Time -->
     <!-- product Content -->
-    <p class="lead"><%= @product.description %></p>
+      Price: <%= @product.price_cents %>
+      Quantity: <%= @product.stock_quantity %>
+    </p>
+    <%= @product.description %>
   </div>
 </div>
 

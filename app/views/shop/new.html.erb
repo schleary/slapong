@@ -1,5 +1,7 @@
 <%= bootstrap_form_for(@product) do |f| %>
   <%= f.text_field :name, class: "form-control", placeholder: "Name"  %>
   <%= f.text_area :description, class: "form-control", placeholder: "Description", rows: "20" %>
+  <%= f.number_field :price_cents, class: "form-control", placeholder: "Price", icon: "usd" %>
+  <%= f.number_field :stock_quantity, class: "form-control", placeholder: "Quantity in stock", rows: "20" %>
   <%= f.submit "Save", class: "btn btn-default"%>
 <% end %>

@@ -18,6 +18,9 @@ class ApplicationController < ActionController::Base
 
   def admin?
     if !current_user.nil?
+      puts "**********"
+      puts ENV["ADMIN_PASSWORD"]
+      puts "**********"
       current_user[:email] == ENV["ADMIN_PASSWORD"]
     end
   end
