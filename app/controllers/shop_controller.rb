@@ -115,34 +115,34 @@ class ShopController < ApplicationController
 
 
 
-def edit
-  find_product
-  if session[:user_id]
-    @categories = Category.all
-  else
-    redirect_to home_path
-  end
-end
-
-def update
-  @categories = Category.all
-  find_product
-  if @product.update(product_params) && session[:user_id]
-    #put this into myaccount dashboard once that's been created
-    redirect_to dashboard_path(current_user), notice: "Product has been updated!"
-  else
-    render "edit"
-  end
-end
-
-# products can now be 'retired' so can delete this
-def destroy
-  if find_product.destroy
-    redirect_to dashboard_path(current_user), notice: "Product has been deleted!"
-  else
-    render "delete", notice: "Try again."
-  end
-end
+# def edit
+#   find_product
+#   if session[:user_id]
+#     @categories = Category.all
+#   else
+#     redirect_to home_path
+#   end
+# end
+#
+# def update
+#   @categories = Category.all
+#   find_product
+#   if @product.update(product_params) && session[:user_id]
+#     #put this into myaccount dashboard once that's been created
+#     redirect_to dashboard_path(current_user), notice: "Product has been updated!"
+#   else
+#     render "edit"
+#   end
+# end
+#
+# # products can now be 'retired' so can delete this
+# def destroy
+#   if find_product.destroy
+#     redirect_to dashboard_path(current_user), notice: "Product has been deleted!"
+#   else
+#     render "delete", notice: "Try again."
+#   end
+# end
 
 private
 
