@@ -1,5 +1,7 @@
 <h1>Slapong Products</h1>
-<%= link_to "Create a New Product", products_new_path, class:"btn btn-primary" %>
+<% if admin? %>
+  <%= link_to "Create a New Product", products_new_path, class:"btn btn-primary" %>
+<% end %>
 
 <img src="http://fakeimg.pl/1140x300/" alt="...">
 

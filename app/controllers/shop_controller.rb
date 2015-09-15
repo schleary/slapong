@@ -43,7 +43,11 @@ class ShopController < ApplicationController
   end
 
   def show
+    puts "BEFORE ****************"
     @product = Product.find(params[:id])
+    puts '******'
+    puts @product.inspect
+    puts "*******"
   end
 
   def destroy
@@ -63,27 +67,27 @@ class ShopController < ApplicationController
 
 
 
-def show
-  find_product
-  @categories = @product.categories
-  @reviews = @product.reviews
-
-  # #added by Holly
-  @current_order = Order.where(:session_id => @current_session_id, :current_state => "pending")
-  if @current_order.size == 0
-    @order = Order.new(:session_id => @current_session_id, :current_state => "pending")
-    @order.save
-  else
-    #if current_order size == 1
-    @order = @current_order[0]
-  end
-
-  if OrderItem.find_by(:product_id => @product.id, :order_id => @order.id).present?
-    @order_item = OrderItem.find_by(:product_id => @product.id)
-  else
-    @order_item = OrderItem.new
-  end
-end
+# def show
+#   find_product
+#   @categories = @product.categories
+#   @reviews = @product.reviews
+#
+#   # #added by Holly
+#   @current_order = Order.where(:session_id => @current_session_id, :current_state => "pending")
+#   if @current_order.size == 0
+#     @order = Order.new(:session_id => @current_session_id, :current_state => "pending")
+#     @order.save
+#   else
+#     #if current_order size == 1
+#     @order = @current_order[0]
+#   end
+#
+#   if OrderItem.find_by(:product_id => @product.id, :order_id => @order.id).present?
+#     @order_item = OrderItem.find_by(:product_id => @product.id)
+#   else
+#     @order_item = OrderItem.new
+#   end
+# end
 
 # def add_to_cart
 #   find_product
@@ -142,9 +146,6 @@ end
 
 private
 
-def product_params
-  (params.require(:product).permit(:name, :description))
-end
 
 def find_product
   @product = Product.find(params[:id])
