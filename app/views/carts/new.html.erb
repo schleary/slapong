@@ -1,0 +1,6 @@
+<%= bootstrap_form_for(@order_item) do |f| %>
+  <%= f.number_field :quantity, class: "form-control", placeholder: "Quantity", min: 1, max: @product.stock   %>
+  <%= f.hidden_field :subtotal, class: "form-control", :value => @product.stock_quantity  %>
+  <%= f.hidden_field :product_id, :value => @product.id %>
+  <%= f.submit "Save", class: "btn btn-default"%>
+<% end %>

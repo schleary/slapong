@@ -1,15 +1,17 @@
 class CartsController < ApplicationController
   def new
-    @cart = Cart.new
+    @product = Product.find(params[:id])
+    @order_item = OrderItem.new
+
   end
 
   def index
-    @carts = Cart.all
+    @order_items = OrderItem.all
   end
 
   def create
-    @cart = Cart.new
-    if @cart.save
+    @order_item = OrderItem.new
+    if @order_item.save
       # session["user_id"] = @user.id
       redirect_to "/"
     else
