@@ -43,11 +43,8 @@ class ShopController < ApplicationController
   end
 
   def show
-    puts "BEFORE ****************"
     @product = Product.find(params[:id])
-    puts '******'
-    puts @product.inspect
-    puts "*******"
+    @order_item = OrderItem.new
   end
 
   def destroy

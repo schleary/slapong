@@ -30,14 +30,13 @@ Rails.application.routes.draw do
   delete  '/shop/:id/delete',       to: 'shop#destroy',       as: :products_destroy
 
   # cart routes
-  get     '/cart',                  to: 'carts#index',         as: :order_item
-  get     '/cart',                  to: 'carts#index',         as: :order_items
-  get     '/cart/new',              to: 'carts#new',           as: :order_items_new
-  post    '/cart',                  to: 'carts#create',        as: :order_items_create
-  get     '/cart/:id',              to: 'carts#show',          as: :order_items_show
-  get     '/cart/:id/edit',         to: 'carts#edit',          as: :order_items_edit
-  patch   '/cart/:id',              to: 'carts#update',        as: :order_items_update
-  delete  '/cart/:id/delete',       to: 'carts#destroy',       as: :order_items_destroy
+  get     '/cart',                  to: 'carts#index',         as: :order
+  get     '/cart/new',              to: 'carts#new',           as: :order_new
+  post    '/cart',                  to: 'carts#create',        as: :order_create
+  get     '/cart/:id',              to: 'carts#show',          as: :order_show
+  get     '/cart/:id/edit',         to: 'carts#edit',          as: :order_edit
+  patch   '/cart/:id',              to: 'carts#update',        as: :order_update
+  delete  '/cart/:id/delete',       to: 'carts#destroy',       as: :order_destroy
 
   get     '/play',                  to: 'play#index',         as: :play
 

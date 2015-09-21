@@ -18,7 +18,7 @@
               <h3><%= link_to product.name, products_show_path(product) %></h3>
               <p>
                 Price: <%= product.price_cents %>
-                Quantity: <%= product.stock_quantity %>
+                In stock: <%= product.stock_quantity %>
               </p>
               <%= product.description %>
               <%= link_to "Add to cart", order_items_new_path, class:"btn btn-primary" %>
